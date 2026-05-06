@@ -1,0 +1,32 @@
+package com.flavio.agendadortarefas.infraestructure.entity;
+
+import com.flavio.agendadortarefas.infraestructure.enums.StatusNotificacaoEnum;
+import lombok.*;
+import org.springframework.cglib.core.Local;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Document("tarefas")
+public class TarefasEntity  {
+
+    @Id
+    private String id;
+    private String nomeTarefa;
+    private String descricao;
+    @CreatedDate
+    private LocalDateTime dataCriacao;
+    private LocalDateTime dataEvento;
+    private String emailUsuario;
+    @LastModifiedDate
+    private LocalDateTime dataAlteracao;
+    private StatusNotificacaoEnum statusNotificacaoEnum;
+
+}
